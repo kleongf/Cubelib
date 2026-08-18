@@ -1,3 +1,45 @@
+# Cubelib
+
+An Android/Java utility library created by FTC Team 23641 Cuberobot. Cubelib collects reusable robot-programming building blocks that can be shared across FTC projects instead of copied between `TeamCode` modules.
+
+## Included APIs
+
+- feedback/feedforward controllers: `BangBangController` and `PIDSVGController`
+- finite-state machines with entry/exit actions, timed fallbacks, and conditional transitions
+- math helpers, interpolation lookup tables, and matrix operations
+- lightweight `Robot` and `Subsystem` lifecycle base classes
+
+The library package is `io.github.kleongf.cubelib`. It targets Java 8, Android API 24+, and FTC `RobotCore` 10.2.0.
+
+## Build locally
+
+Open the repository in Android Studio, allow Gradle to sync, then run:
+
+```bash
+./gradlew :Cubelib:assembleRelease
+./gradlew :Cubelib:test
+```
+
+The repository already declares the `Cubelib` module in `settings.gradle`. To use it from another module in this checkout, add:
+
+```groovy
+dependencies {
+    implementation project(':Cubelib')
+}
+```
+
+The Gradle module contains Maven publication configuration, but publishing requires your own Sonatype and GPG credentials; those are not needed to build or use the library locally.
+
+## Source layout
+
+- `Cubelib/src/main/java/io/github/kleongf/cubelib/` — library source.
+- `Cubelib/src/test/` and `Cubelib/src/androidTest/` — test locations.
+- `FtcRobotController/` and `TeamCode/` — FTC SDK host application used for integration.
+
+---
+
+## FTC SDK reference
+
 ## NOTICE
 
 This repository contains the public FTC SDK for the DECODE (2025-2026) competition season.
